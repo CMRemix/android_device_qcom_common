@@ -26,9 +26,9 @@ VENDOR=qcom
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-CM_ROOT="$MY_DIR"/../../../..
+CMREMIX_ROOT="$MY_DIR"/../../../..
 
-HELPER="$CM_ROOT"/vendor/cm/build/tools/extract_utils.sh
+HELPER="$CMREMIX_ROOT"/vendor/cmremix/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -39,7 +39,7 @@ PLATFORM=msm8916
 SUBSYSTEM=graphics
 
 # Initialize the helper
-setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CM_ROOT" true true $SUBSYSTEM
+setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CMREMIX_ROOT" true true $SUBSYSTEM
 
 # Copyright headers and guards
 write_headers $PLATFORM TARGET_BOARD_PLATFORM
@@ -64,7 +64,7 @@ PLATFORM=msm8974
 SUBSYSTEM=graphics
 
 # Initialize the helper
-setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CM_ROOT" true true $SUBSYSTEM
+setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CMREMIX_ROOT" true true $SUBSYSTEM
 
 # Copyright headers and guards
 write_headers $PLATFORM TARGET_BOARD_PLATFORM
@@ -84,7 +84,7 @@ PLATFORM=msm8992
 SUBSYSTEM=graphics
 
 # Initialize the helper
-setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CM_ROOT" true true $SUBSYSTEM
+setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CMREMIX_ROOT" true true $SUBSYSTEM
 
 # Copyright headers and guards
 write_headers $PLATFORM TARGET_BOARD_PLATFORM
@@ -109,7 +109,7 @@ PLATFORM=msm8994
 SUBSYSTEM=graphics
 
 # Initialize the helper
-setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CM_ROOT" true true $SUBSYSTEM
+setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CMREMIX_ROOT" true true $SUBSYSTEM
 
 # Copyright headers and guards
 write_headers $PLATFORM TARGET_BOARD_PLATFORM
@@ -134,7 +134,7 @@ PLATFORM=msm8996
 SUBSYSTEM=graphics
 
 # Initialize the helper
-setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CM_ROOT" true true $SUBSYSTEM
+setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CMREMIX_ROOT" true true $SUBSYSTEM
 
 # Copyright headers and guards
 write_headers $PLATFORM TARGET_BOARD_PLATFORM
@@ -161,7 +161,7 @@ write_footers
 SUBSYSTEM=audio
 
 # Initialize the helper
-setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CM_ROOT" true true $SUBSYSTEM
+setup_vendor "$DEVICE/$PLATFORM/$SUBSYSTEM" "$VENDOR" "$CMREMIX_ROOT" true true $SUBSYSTEM
 
 # Copyright headers and guards
 write_headers $PLATFORM TARGET_BOARD_PLATFORM
@@ -178,7 +178,7 @@ echo "endif" >> "$PRODUCTMK"
 write_footers
 
 # Add a guard on the top level
-cat << EOF > "$CM_ROOT/vendor/$VENDOR/$DEVICE/Android.mk"
+cat << EOF > "$CMREMIX_ROOT/vendor/$VENDOR/$DEVICE/Android.mk"
 LOCAL_PATH := \$(call my-dir)
 
 include \$(CLEAR_VARS)
